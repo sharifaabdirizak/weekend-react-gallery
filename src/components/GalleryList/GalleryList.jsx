@@ -1,14 +1,16 @@
 import GalleryItem from '../GalleryItem/GalleryItem';
 
-function GalleryList({GalleryList,UpdateGalleryList}) {
+function GalleryList({galleryList, getGallery}) {
 
-    reutrn (
-        <ul>{GalleryList.map(picture =>{ 
-            return <GalleryItem
-            key={picture.id}
+    return (
+        <ul>{galleryList.map(picture =>{ 
+            return ( <GalleryItem
+            
+            key= {[picture.id]}
             picture={picture}
-            updateGalleryItem={updateGalleryItem}
+            getGallery={getGallery}
             />
+            )
         })}
          </ul>
     )

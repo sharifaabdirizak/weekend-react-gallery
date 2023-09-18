@@ -1,16 +1,20 @@
 import { useState } from "react";
 import GalleryList from '../GalleryList/GalleryList';
 
-function GalleryItem({picture}) {
+function GalleryItem({picture, getGallery}) {
 
     return (
-        <div className='picture'>
-            <li
-                onClick={flipImage}>
-                {renderImage()}
+        <div>
+            <li>
+           
+               <img src={picture.path}/>
+               <p>likes</p>
+
+            
+                
             </li>
-            Likes: {picture.like}
-            <button className= '.button' onClick={onSubmit}>👍</button>
+            {/* Likes: {picture.like} */}
+            {/* <button className= '.button' onClick={onSubmit}>👍</button> */}
         </div>
     )
 }
