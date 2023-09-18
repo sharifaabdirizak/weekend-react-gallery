@@ -3,7 +3,13 @@ import GalleryList from '../GalleryList/GalleryList';
 import axios from 'axios';
 
 function GalleryItem({ picture, getGallery }) {
-  const [likeCount, setLikeCount] = useState(picture.likes);
+const [likeCount, setLikeCount] = useState(picture.likes);
+const [photoStatus, setPhotoStatus] =useState(true)
+
+const flipPhoto = () => {
+    setPhotoStatus(!photoStatus); // Toggle the value
+}
+
 
   const addLike = (id) => {
     axios
@@ -18,9 +24,12 @@ function GalleryItem({ picture, getGallery }) {
   };
 
   return (
+    <>
     <div>
+        {photoStatus ?
+        <>
       <li>
-        <img src={picture.path} alt={`Gallery Item ${picture.id}`} />
+        <img src={picture.path}  onClick={flipPhoto} alt={`Gallery Item ${picture.id}`} />
         <p>
           {likeCount} likes
           <button className='button' onClick={() => addLike(picture.id)}>
@@ -28,7 +37,21 @@ function GalleryItem({ picture, getGallery }) {
           </button>
         </p>
       </li>
+      </>
+      :
+      <div className='description' onClick={flipPhoto}> 
+      <p>{picture.description}</p>
+      <p>
+          {likeCount} likes
+          <button className='button' onClick={() => addLike(picture.id)}>
+            👍
+          </button>
+        </p>
+
+      </div>
+}
     </div>
+    </>
   );
 }
 
