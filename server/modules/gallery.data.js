@@ -38,6 +38,8 @@ const galleryItems = [
     path: "images/food.jpeg",
     description: "Foods I like to eat that are clean and healthy.",
     likes: 0,
+
+    
   },
 ];
 
